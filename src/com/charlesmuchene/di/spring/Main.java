@@ -1,5 +1,7 @@
 package com.charlesmuchene.di.spring;
 
+import com.charlesmuchene.di.spring.dao.UserDao;
+import com.charlesmuchene.di.spring.dao.impl.UserDaoImpl;
 import com.charlesmuchene.di.spring.domain.User;
 import com.charlesmuchene.di.spring.service.UserService;
 import com.charlesmuchene.di.spring.service.impl.UserServiceImpl;
@@ -10,7 +12,8 @@ public class Main {
 
         User user = new User("Charles", 24);
 
-        UserService userService = new UserServiceImpl();
+        UserDao userDao = new UserDaoImpl();
+        UserService userService = new UserServiceImpl(userDao);
         userService.save(user);
 
         System.out.println("******************************");

@@ -3,8 +3,9 @@ package com.charlesmuchene.di.spring.dao.impl;
 import com.charlesmuchene.di.spring.dao.UserDao;
 import com.charlesmuchene.di.spring.domain.User;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
-@Component
+@Repository
 public class UserDaoImpl implements UserDao {
 
     @Override

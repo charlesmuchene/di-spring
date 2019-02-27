@@ -5,8 +5,9 @@ import com.charlesmuchene.di.spring.domain.User;
 import com.charlesmuchene.di.spring.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
-@Component
+@Service
 public class UserServiceImpl implements UserService {
 
     @Autowired

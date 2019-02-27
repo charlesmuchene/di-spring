@@ -3,14 +3,14 @@ package com.charlesmuchene.di.spring.service.impl;
 import com.charlesmuchene.di.spring.dao.UserDao;
 import com.charlesmuchene.di.spring.domain.User;
 import com.charlesmuchene.di.spring.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+@Component
 public class UserServiceImpl implements UserService {
 
+    @Autowired
     private UserDao userDao;
-
-    public UserServiceImpl(UserDao userDao) {
-        this.userDao = userDao;
-    }
 
     @Override
     public void save(User user) {

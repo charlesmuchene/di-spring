@@ -1,10 +1,10 @@
 package com.charlesmuchene.di.spring;
 
-import com.charlesmuchene.di.spring.dao.UserDao;
-import com.charlesmuchene.di.spring.dao.impl.UserDaoImpl;
 import com.charlesmuchene.di.spring.domain.User;
 import com.charlesmuchene.di.spring.service.UserService;
 import com.charlesmuchene.di.spring.service.impl.UserServiceImpl;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class Main {
 
@@ -12,8 +12,10 @@ public class Main {
 
         User user = new User("Charles", 24);
 
-        UserDao userDao = new UserDaoImpl();
-        UserService userService = new UserServiceImpl(userDao);
+        String contextLocation = "context/applicationContext.xml";
+        ApplicationContext context = new ClassPathXmlApplicationContext(contextLocation);
+
+        UserService userService = context.getBean(UserService.class);
         userService.save(user);
 
         System.out.println("******************************");
